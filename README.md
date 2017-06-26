@@ -1,6 +1,15 @@
 # Food Delivery Service
 #### by Jian ZHu
 
+
+## Requirement
+1. Java 8 (Recommendation)
+2. SpringBoot
+3. Eureka
+4. Hystrix
+5. MYSQL, MongoDB
+6. Docker
+
 ## Service Function
 1. search restaurant by restaurant name,
 2. choose different menu Items, quantity and notes,
