@@ -1,0 +1,8 @@
+#spring.data.mongodb.host=localhost
+
+
+server:
+  port: 9005
+spring:
+  application:
+    name: food-delivery-order

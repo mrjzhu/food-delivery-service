@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="edging-service" />
+        <module name="eurekaka" />
+        <module name="food-delivery-order" />
+        <module name="food-delivery-payment" />
+        <module name="food-delivery-resturant" />
+        <module name="food-eureka-server" />
+        <module name="food-hystrix-dashboard" />
+        <module name="running-eureka-server" />
+        <module name="running-hystrix-dashboard" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="edging-service" target="1.5" />
+      <module name="eureka" target="1.8" />
+      <module name="eurekaka" target="1.5" />
+      <module name="food-delivery-order" target="1.5" />
+      <module name="food-delivery-payment" target="1.8" />
+      <module name="food-delivery-resturant" target="1.8" />
+      <module name="food-delivery-service" target="1.8" />
+      <module name="food-eureka-server" target="1.8" />
+      <module name="food-hystrix-dashboard" target="1.6" />
+      <module name="platform" target="1.5" />
+      <module name="running-eureka-server" target="1.8" />
+      <module name="running-hystrix-dashboard" target="1.6" />
+      <module name="spring-cloud-nike-running" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
