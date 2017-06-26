@@ -1,7 +1,7 @@
-#Food Delivery Service
+# Food Delivery Service
 #### by Jian ZHu
 
-##Service Function
+## Service Function
 1. search restaurant by restaurant name,
 2. choose different menu Items, quantity and notes,
 3. user can place a order and make a payment.
@@ -142,3 +142,4 @@
 ## PS
 * ALl the testcase used for test, needed to improve in future.
 * Will add UI in the future.# food-delivery-service
+@ When uploaded a final version, share the step to deploy and run steps
