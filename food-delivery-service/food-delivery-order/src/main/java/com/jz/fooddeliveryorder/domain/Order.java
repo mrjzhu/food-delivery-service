@@ -39,12 +39,12 @@ public class Order {
                  @JsonProperty("date") String date,
                  @JsonProperty("deliveryAddress") String deliveryAddress,
                  @JsonProperty("totalPrice") double totalPrice){
-        this.orderId = orderId;
+//        this.orderId = orderId;
         this.items = new ArrayList<ItemInfo>(items);
         this.date = new Date().toString();
         this.deliveryAddress = deliveryAddress;
         for(ItemInfo n : items){
-            this.totalPrice += n.item.itemPrice * n.quantity;
+            this.totalPrice += n.itemPrice * n.quantity;
         }
     }
 }

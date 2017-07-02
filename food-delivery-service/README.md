@@ -1,16 +1,7 @@
-# Food Delivery Service
+#Food Delivery Service
 #### by Jian ZHu
 
-
-## Requirement
-1. Java 8 (Recommendation)
-2. SpringBoot
-3. Eureka
-4. Hystrix
-5. MYSQL, MongoDB
-6. Docker
-
-## Service Function
+##Service Function
 1. search restaurant by restaurant name,
 2. choose different menu Items, quantity and notes,
 3. user can place a order and make a payment.
@@ -28,127 +19,214 @@
 3. food-delivery-payment(Mysql)
      * make a payment. 
      
-## API design:
+## RESTAPI design:
 
 ### food-delivery-restaurant service
 1.upload(): (POST)
+   ```
+   "/RestaurantInfo"
+   ```
    * upload the initial restaurant and menu data,
 
 2 delete ():(DELETE)
+  ```
+   "/RestaurantInfo"
+   ```
    * Delete all the data.
    
 3 findRestaurant() (GET)
+   ```
+   "/RestaurantInfo/{name}"
+   ```
    * Query the restaurant by name
+   
+4 findItems() (GET)
+   ```
+   "/RestaurantInfo/{name}/Items"
+   ```
+   * get menuItems by Restaurant name
+   
    
 ### food-delivery-order service
 
 1.upload(): (POST)
-   * upload the initial Order to simulate the process,
+```
+/OrderService
+```
+   * CREATE ORDERS;
 
 2 delete() :(DELETE)
-   * Delete all the orders.
+```
+/OrderService
+```
+   * DELETE ALL ORDERS
    
-3 findAll() (GET)
-   * return all the orders.
-   
+3 deleteById() : (DELETE)
+```
+/OrderService/{orderId}
+```
+* DELETE ORDERS BY ID
+
+4 findAll() (GET)
+```
+/OrderService
+```
+   * RETURN ALL THE ORDERS
+
 
 ### food-delivery-payment service
 1.save(): (POST)
+```
+/Payment
+```
    * user make a payment, database store the payment history,
 
 2 delete() :(DELETE)
+```
+/Payment
+```
    * Delete all the history(In real world, better not).
    
-3 findRestaurant() (GET)
+3 findALLPaymentt() (GET)
+```
+/Payment
+```
    * Query the payment history
 
-### Sequence to start these API
-   * upload restaurant and menu data to DB,
+### notes:
+Above Rest APIs return the result with JSON FORMAT, 
+We can use POSTMAN to send request and Check the response;
+
+# ------------------------------------------------------
+
+## In order to demonstrate the application flow, use UI to Integrated backend service.
+## Tools: Thymeleaf
+First, we need to add dependency on all services.:
+```
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+```
+
+### Before start application
+start MongoDB for restaurant and order service, and start MYSQL for payment service
+
+```
+cd food-delivery-service/food-delivery-order
+```
+
+```
+docker-compose up
+```
+```
+cd food-delivery-service/food-delivery-payment
+```
+
+```
+docker-compose up
+```
+
+
+### Sequence to start these APPLICATION
+1.start three services
+```
+   cd food-delivery-service/food-delivery-order
+   mvn clean install
+   cd target
+   java -jar food-delivery-order-0.0.1-SNAPSHOT.jar 
+```
+
+```
+   cd food-delivery-service/food-delivery-payment
+   mvn clean install
+   cd target
+   java -jar food-delivery-payment-0.0.1-SNAPSHOT.jar 
+```
+
+```
+   cd food-delivery-service/food-delivery-resturant
+   mvn clean install
+   cd target
+   java -jar food-delivery-resturant-0.0.1-SNAPSHOT.jar 
+```
+   2.I assume that we have already have the initial restaurant information and menus;(post the data with post man) 
+   url:localhost:9004/RestaurantInfo
+   ```
+   [
+    {
+    "Name": "Dragon",
+    "Description": "RESTAURANT 1",
+    "menuItems": [
+    	{
+   		"itemName": "meat",
+   		"itemPrice": 10.00
+   	},
+   	{
+   		"itemName": "chocolate",
+   		"itemPrice": 13.00
+   	},
+   	{
+   		"itemName": "salad",
+   		"itemPrice": 10.00
+   	},
+   	{
+   		"itemName": "fruit",
+   		"itemPrice": 15.00
+   	},
+   	{
+   		"itemName": "chicken",
+   		"itemPrice": 17.00
+   	}
+   	]
+    },
+     {
+    "Name": "Ball",
+    "Description": "RESTAURANT 2",
+    "menuItems": [{
+   		"itemName": "barbeque",
+   		"itemPrice": 30.00
+   	},
+   	{
+   		"itemName": "Duck",
+   		"itemPrice": 12.00
+   	},
+   	{
+   		"itemName": "fruit",
+   		"itemPrice": 19.00
+   	},
+   	{
+   		"itemName": "fish",
+   		"itemPrice": 5.00
+   	},
+   	{
+   		"itemName": "wing",
+   		"itemPrice": 12.00
+   	},
+   	{
+   		"itemName": "tender",
+   		"itemPrice": 15.00
+   	}
+   	]
+    }
+   ]
+
+   ```
    
-   * user start to make a order
    
-   * user make a payment, get the payment message.
+   2.Login url: http://localhost:9005, which is the mainPage the the whole application.
+   * step 1, search restaurant by name (default name ="Ball")
+   * step 2, add items to shopping cart, choose quantity and add notes for restriction
+   * step 3, enter the delivery address then click Place order to create order.
+   * step 4, choose a order to pay or delete the order.
+   * Step 5, input payment information to finish pay.
+   * step 6, if payment finishd, start to delivery.
    
    
-### Test Data.
+   
+   
 
-#### food-delivery-restaurant service
-```
-[
- {
- "Name": "Dragon",
- "Description": "RESTAURANT 1",
- "menuItems": [{
- "itemName": "meat",
- "itemPrice": 10.00
- },
- {
- "itemName": "fruit",
- "itemPrice": 15.00
- }]
- },
-  {
- "Name": "Ball",
- "Description": "RESTAURANT 2",
- "menuItems": [{
- "itemName": "barbeque",
- "itemPrice": 30.00
- },
- {
- "itemName": "Duck",
- "itemPrice": 12.00
- }]
- }
-]
-```
-
-#### food-delivery-order service
-
-```
-[
- {
-	"deliveryAddress": "2518S Street",
-	"items": 
-	[
-		{
-		"item":{
-			"itemName": "meat",
-			"itemPrice": 10.00
-		},
-		 "quantity": 2,
-		 "note":"spicy please"
-		},
-		{
-		"item":{
-			"itemName": "fruit",
-			"itemPrice": 15.00
-		},
-		 "quantity": 2,
-		 "note":"more please"
-		 }
-	]
- }
-]
-
-```
-#### food-delivery-payment service
-
-```
-{
-    "orderId": "1",
-    "cardNo": "3453456789098",
-    "expirationDate": "May 1, 2017",
-    "securityCode": "322"
-  },
-  {
-    "order_id": "2",
-    "cardNo": "4312454454545454",
-    "expirationDate": "May 5, 2015",
-    "securityCode": "566"
-  },
-```
 
 ## PS
-* ALl the testcase used for test, needed to improve in future.
-* Will add UI in the future.# food-delivery-service
-@ When uploaded a final version, share the step to deploy and run steps
+ Because UI added, add a UIcontroller class to control the message transaction between different service.
+  

@@ -25,8 +25,9 @@ public class Payment {
 
     private String orderId;
 
-    private Date date;
+    private String date;
 
+    private double price;
 
     private String cardNo;
     private String expirationDate;
@@ -34,15 +35,15 @@ public class Payment {
 
     public Payment(){};
     @JsonCreator
-    public Payment(@JsonProperty("paymentId") Long paymentId,
+    public Payment(
                    @JsonProperty("orderId") String orderId,
                    @JsonProperty("cardNo") String cardNumber,
-//                   @JsonProperty("date") Date date,
+                   @JsonProperty("price") double price,
                    @JsonProperty("expirationDate") String expirationDate,
                    @JsonProperty("securityCode") String securityCode) {
-        this.paymentId = paymentId;
         this.orderId = orderId;
-        this.date = new Date();
+        this.price = price;
+        this.date = new Date().toString();
         this.cardNo = cardNumber;
         this.expirationDate = expirationDate;
         this.securityCode = securityCode;

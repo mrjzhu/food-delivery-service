@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="edging-service" />
         <module name="eurekaka" />
         <module name="food-delivery-order" />
         <module name="food-delivery-payment" />
@@ -21,7 +20,7 @@
       <module name="edging-service" target="1.5" />
       <module name="eureka" target="1.8" />
       <module name="eurekaka" target="1.5" />
-      <module name="food-delivery-order" target="1.5" />
+      <module name="food-delivery-order" target="1.8" />
       <module name="food-delivery-payment" target="1.8" />
       <module name="food-delivery-resturant" target="1.8" />
       <module name="food-delivery-service" target="1.8" />

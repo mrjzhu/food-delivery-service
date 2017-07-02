@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Food Delivery Application</title>
+    <style type="text/css">
+        a{
+            text-decoration:none;
+        }
+        .list{
+            margin-top:30px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+<hr/>
+<h3>Payment Info</h3>
+
+<p>paymentId: <span th:text="${paymentInfo.paymentId}"></span></p>
+<p>orderId: <span th:text="${paymentInfo.orderId}"></span></p>
+<p>TotalPrice:<span th:text="${paymentInfo.price}"></span></p>
+<p>Date: $ <span th:text="${paymentInfo.date}"></span></p>
+<p>cardNo:<span th:text="${paymentInfo.cardNo}"></span></p>
+<p>expirationDate:<span th:text="${paymentInfo.expirationDate}"></span></p>
+<p>securityCode:<span th:text="${paymentInfo.securityCode}"></span></p>
+<hr/>
+
+<h1 th:text="${afterPayment}"></h1>
+</body>
+</html>

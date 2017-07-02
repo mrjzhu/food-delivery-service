@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<!--<groupId>com.jz</groupId>-->
+	<groupId>com.jz</groupId>
 	<artifactId>food-delivery-order</artifactId>
-	<!--<version>0.0.1-SNAPSHOT</version>-->
-	<!--<packaging>jar</packaging>-->
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
 	<name>food-delivery-order</name>
 	<description>Demo project for Spring Boot</description>
@@ -17,10 +17,16 @@
 		<!--<version>1.4.5.RELEASE</version>-->
 		<!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
 	<!--</parent>-->
+    <!--<parent>-->
+        <!--<groupId>com.jz</groupId>-->
+        <!--<artifactId>spring-cloud-food-delivery</artifactId>-->
+        <!--<version>1.0.0.BUILD-SNAPSHOT</version>-->
+        <!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    <!--</parent>-->
     <parent>
-        <groupId>com.jz</groupId>
-        <artifactId>spring-cloud-food-delivery</artifactId>
-        <version>1.0.0.BUILD-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -69,8 +75,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <!--<dependency>-->
             <!--<groupId>org.springframework.cloud</groupId>-->

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
@@ -16,16 +17,22 @@ import javax.persistence.Id;
 @Document
 public class ItemInfo {
 
-    public Item item;
+    @Id
+    @GeneratedValue
+    private String cartId;
+    public String itemName;
+    public double itemPrice;
     public int quantity;
     public String note;
 
     public ItemInfo(){};
     @JsonCreator
-    public ItemInfo(@JsonProperty("item") Item item,
+    public ItemInfo(@JsonProperty("itemName") String itemName,
+                    @JsonProperty("itemPrice") double itemPrice,
                      @JsonProperty("quantity") int quantity,
                      @JsonProperty("note") String note){
-        this.item = item;
+        this.itemName = itemName;
+        this.itemPrice = itemPrice;
         this.quantity = quantity;
         this.note = note;
     }

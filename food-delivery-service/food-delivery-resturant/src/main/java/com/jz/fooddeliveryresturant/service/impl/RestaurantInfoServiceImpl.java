@@ -30,8 +30,11 @@ public class RestaurantInfoServiceImpl implements RestaurantInfoService{
         return repository.findAllByName(name);
     }
 
+
     @Override
     public void deleteAll() {
         this.repository.deleteAll();
     }
+
+
 }

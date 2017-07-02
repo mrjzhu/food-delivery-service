@@ -15,6 +15,13 @@ public interface OrderRepository extends MongoRepository<Order,Long> {
 
     @RestResource(path = "Order")
     List<Order> findAllBy();
+
+    @RestResource(path = "Order/Id")
+    Order findByOrderId(String orderId);
+
     @RestResource(path = "delete")
     void deleteAllBy();
+
+    @RestResource(path = "delete/Id")
+    void deleteAllByOrderId(String orderId);
 }

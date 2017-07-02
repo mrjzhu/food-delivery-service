@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Food Delivery Application</title>
+    <style type="text/css">
+        a{
+            text-decoration:none;
+        }
+        .list{
+            margin-top:30px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+
+<h3>Payment details</h3>
+<hr/>
+        <form th:action="@{/pay}" method="post">
+        <p>orderId: <input type="text" th:value="${Order.orderId}" name="orderId" id="orderId" readonly="readonly"/></p>
+            <p>price:<input type="text"  th:value= "${Order.totalPrice}" name="price" id="price" readonly="readonly" /></p>
+            <p>CardNo:<input type="text"  name="CardNo" id="CardNo" />(16 bits)</p>
+            <p>ExpirationDate:<input type="text"  name="ExpirationDate" id="ExpirationDate" /></p>
+            <p>SecurityCode:<input type="text"  name="SecurityCode" id="SecurityCode" />(3 bits)</p>
+
+            <input type="submit" name="submit" value="Pay"/>
+        <hr/>
+        </form>
+
+<hr/>
+
+
+
+</body>
+</html>

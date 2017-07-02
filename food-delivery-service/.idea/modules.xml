@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/edging-service/edging-service.iml" filepath="$PROJECT_DIR$/edging-service/edging-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/food-delivery-order/eureka.iml" filepath="$PROJECT_DIR$/food-delivery-order/eureka.iml" />
-      <module fileurl="file://$PROJECT_DIR$/food-delivery-order/eurekaka.iml" filepath="$PROJECT_DIR$/food-delivery-order/eurekaka.iml" />
       <module fileurl="file://$PROJECT_DIR$/food-delivery-order/food-delivery-order.iml" filepath="$PROJECT_DIR$/food-delivery-order/food-delivery-order.iml" />
       <module fileurl="file://$PROJECT_DIR$/food-delivery-payment/food-delivery-payment.iml" filepath="$PROJECT_DIR$/food-delivery-payment/food-delivery-payment.iml" />
       <module fileurl="file://$PROJECT_DIR$/food-delivery-resturant/food-delivery-resturant.iml" filepath="$PROJECT_DIR$/food-delivery-resturant/food-delivery-resturant.iml" />
