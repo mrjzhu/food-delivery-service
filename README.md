@@ -1,7 +1,7 @@
-#Food Delivery Service
+# Food Delivery Service
 #### by Jian ZHu
 
-##Service Function
+## Service Function
 1. search restaurant by restaurant name,
 2. choose different menu Items, quantity and notes,
 3. user can place a order and make a payment.
