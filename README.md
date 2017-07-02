@@ -1,7 +1,7 @@
-# Food Delivery Service
+#Food Delivery Service
 #### by Jian ZHu
 
-## Service Function
+##Service Function
 1. search restaurant by restaurant name,
 2. choose different menu Items, quantity and notes,
 3. user can place a order and make a payment.
@@ -126,8 +126,22 @@ cd food-delivery-service/food-delivery-payment
 ```
 docker-compose up
 ```
+### notes:
+if there is no database "test", 
+1. go to docker 
+```
+docker exec -it fooddeliverypayment_mysql_1 bash
+```
+2.enter into mysql, username = root, password = root
+```
+mysql -u root -p
+show databases
+```
+if no database "test"
 
-
+```
+create database test;
+```
 ### Sequence to start these APPLICATION
 1.start three services
 ```
